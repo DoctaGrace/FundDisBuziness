@@ -45,7 +45,7 @@ public class FDBServer {
         //Makes it so imaginary dates are not allowed
         form.setLenient(false);
 
-        try ( BufferedReader br = new BufferedReader(new FileReader(evFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(evFile))) {
 
             //Iterate until end of file reached
             String line;
@@ -60,18 +60,21 @@ public class FDBServer {
         }
 
         ServerSocket welcomeSocket = new ServerSocket(6789);
-        System.out.println("TCP Server Activated...");
+        System.out.println("TCP server activated!");
+        System.out.println("Socket info: " + welcomeSocket.toString());
 
         //Start new thread for each client
         while (true) {
             Socket connectionSocket = welcomeSocket.accept();
             new ClientHandler(connectionSocket).start();
+            System.out.println("New thread created!");
         }
     }
 
     //Class to handle client processes
     static class ClientHandler extends Thread {
 
+        //Initialize connection socket
         Socket connectionSocket;
 
         public ClientHandler(Socket socket) {
@@ -130,14 +133,17 @@ public class FDBServer {
                                     } catch (FileNotFoundException ex) {
                                         ex.printStackTrace();
                                     }
-
+                                    
+                                    System.out.println("Notify client event was created");
                                     toClient.writeBytes("Event created!" + '\n');
                                 } else {
+                                    System.out.println("Error message sent to client!");
                                     toClient.writeBytes("Name taken! Try again.\n");
                                 }
 
                                 //Invalid newev syntax; prompt user to try again
                             } catch (Exception ex) {
+                                System.out.println("Error message sent to client!");
                                 toClient.writeBytes("There was an error with your newev command. Please try again!" + '\n');
                             }
 
@@ -189,6 +195,7 @@ public class FDBServer {
                                 toClient.writeBytes(output.toString() + '\n');
 
                             } catch (Exception ex) {
+                                System.out.println("Error message sent to client!");
                                 toClient.writeBytes("There was an issue displaying events!" + '\n');
                             }
 
@@ -251,7 +258,7 @@ public class FDBServer {
                                                 // Handle IOException
                                                 e.printStackTrace();
                                             }
-
+                                            System.out.println("Notify client that goal was reached!");
                                             toClient.writeBytes(fundedEvent.getEventName() + " goal reached!\n");
                                         }
                                         
@@ -326,9 +333,11 @@ public class FDBServer {
                                 
                                 //If event not found, notify the client
                                 if (!eventFound) {
+                                    System.out.println("Error message sent to client!");
                                     toClient.writeBytes("Looks like that event doesn't exist!\n");
                                 }
                             } catch (Exception ex) {
+                                System.out.println("Error message sent to client!");
                                 toClient.writeBytes("There was an issue funding the event!\n");
                             }
                         
@@ -342,12 +351,14 @@ public class FDBServer {
                                         BigDecimal bd = new BigDecimal(entry.getValue().getTargetAmount());
                                         bd = bd.setScale(2, RoundingMode.CEILING);
                                         double roundedValue = bd.doubleValue();
+                                        System.out.println("Return event into to client!");
                                         toClient.writeBytes(entry.getValue().getEventName() + " deadline is " + entry.getValue().getDeadline() + " and target amount is " + roundedValue + '\n');
                                     }
                                 }
                                 toClient.writeBytes("Looks like that event doesn't exist!\n");
 
                             } catch (Exception ex) {
+                                System.out.println("Error message sent to client!");
                                 toClient.writeBytes("There was an issue processing your evinfo command!\n");
                             }
                         
@@ -355,14 +366,17 @@ public class FDBServer {
                         } else if (segments[0].equals("exit")) {
                             
                             //Say bye-bye to client!
+                            System.out.println("Sent farewell to client!");
                             toClient.writeBytes("Going so soon, eh? We'll leave the light on for you!\n");
                             
                             //Close the connection
                             fromClient.close();
                             toClient.close();
                             connectionSocket.close();
+                            System.out.println("Connection closed!");
                         //User tried entering something that can't be processed! Prompt 'em to try again
                         } else {
+                            System.out.println("Error message sent to client!");
                             toClient.writeBytes("Invalid command. Please try again!\n");
                         }
                     } catch (Exception ex) {
