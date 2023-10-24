@@ -369,11 +369,7 @@ public class FDBServer {
                             System.out.println("Sent farewell to client!");
                             toClient.writeBytes("Going so soon, eh? We'll leave the light on for you!\n");
                             
-                            //Close the connection
-                            fromClient.close();
-                            toClient.close();
-                            connectionSocket.close();
-                            System.out.println("Connection closed!");
+                            
                         //User tried entering something that can't be processed! Prompt 'em to try again
                         } else {
                             System.out.println("Error message sent to client!");
@@ -382,9 +378,14 @@ public class FDBServer {
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
+                    //Close the connection
+                    fromClient.close();
+                    toClient.close();
+                    connectionSocket.close();
+                    System.out.println("Connection closed!");
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+
             }
         }
     }
