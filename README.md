@@ -3,12 +3,12 @@ Demonstrating Java-based multithreading, synchronization, and TCPs with a simple
 
 This file walks end users through the download and compilation process, as well as the logic for using the platform.
 
-Prerequisites:
+Prerequisites - 
   JDK (Java Development Kit)
   NetBeans IDE
 
-Getting Started:
-  Download ZIP
+Getting Started - 
+  Download ZIP -
     Navigate to the GitHub repository webpage.
     Click on the 'Code' button.
     Choose 'Download ZIP'.
@@ -16,25 +16,25 @@ Getting Started:
 
 After obtaining the project files, import it into NetBeans.
 
-Importing the Project into NetBeans
-Open NetBeans IDE on your computer.
-Go to File -> Open Project.
-Navigate to the directory where the project files are located.
-Select the project folder and click Open Project.
+Importing the Project into NetBeans - 
+  Open NetBeans IDE on your computer.
+  Go to File -> Open Project.
+  Navigate to the directory where the project files are located.
+  Select the project folder and click Open Project.
 
-Compilation
+Compilation - 
   Compile the project by selecting the 'Run' option at top of the screen. Then, select 'clean and build', or simply 'build'. 
 
-Running the Program
+Running the Program -
   First, right click on the Java class 'FDBServer'. This will activate the project's server. 
   Then, right click on the 'FDBClient' class to begin a session as a user. 
     Since this project supports multithreading, multiple clients can be active.
 
-Program Functions
+Program Functions -
   As a simple event funding platform, this program enables users to view or fund existing events, as well as create new ones. 
   We use a command line interface to process user input.
 
-Using the platform as an active client
+Using the Platform - 
   Upon running the 'FDBClient' class, users will be presented with a host of command options. Below are commands and their corresponding explanations.
   
   newev - Creates a new event. This command requires an event name, amount to raise, and deadline.
@@ -53,5 +53,5 @@ Using the platform as an active client
 
   Exit - enter 'exit' at any point to terminate your session.
 
-Closing the Program
+Closing the Program -
   Once all client sessions have been terminated via the 'exit' command, be sure to cancel the running of the 'FDBServer' class. 
