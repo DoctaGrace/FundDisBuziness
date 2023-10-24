@@ -7,15 +7,6 @@ Prerequisites -
   JDK (Java Development Kit)
   NetBeans IDE
 
-Getting Started - 
-  Download ZIP -
-    Navigate to the GitHub repository webpage.
-    Click on the 'Code' button.
-    Choose 'Download ZIP'.
-    Extract the downloaded ZIP file to a directory of your choice.
-
-After obtaining the project files, import it into NetBeans.
-
 Importing the Project into NetBeans - 
   Open NetBeans IDE on your computer.
   Create a new Java class library.
