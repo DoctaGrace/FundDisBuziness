@@ -38,7 +38,7 @@ Using the Platform -
   Upon running the 'FDBClient' class, users will be presented with a host of command options. Below are commands and their corresponding explanations.
   
   newev - Creates a new event. This command requires an event name, amount to raise, and deadline.
-  Each provided parameter should be seperated by a '-' symbol. Target amount values should be of the format: '1000.00' and date values should be of the format 'MM/DD/YYYY'.
+  Each provided parameter should be separated by a '-' symbol. Target amount values should be of the format: '1000.00' and date values should be of the format 'MM/DD/YYYY'.
   Example: newev - New Fundraising Event Name - 1000.00 - 09/22/2054.
 
   disev - Displays every past or current event instance.
