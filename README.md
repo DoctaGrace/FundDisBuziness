@@ -18,9 +18,9 @@ After obtaining the project files, import it into NetBeans.
 
 Importing the Project into NetBeans - 
   Open NetBeans IDE on your computer.
-  Go to File -> Open Project.
-  Navigate to the directory where the project files are located.
-  Select the project folder and click Open Project.
+  Create a new Java class library.
+  Create Java classes according to the names given in the repository.
+  Copy the code from each class/text file into the corresponding file in your Netbeans project
 
 Compilation - 
   Compile the project by selecting the 'Run' option at top of the screen. Then, select 'clean and build', or simply 'build'. 
