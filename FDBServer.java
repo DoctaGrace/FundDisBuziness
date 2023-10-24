@@ -56,7 +56,6 @@ public class FDBServer {
             }
         } catch (IOException ioex) {
             System.out.println("There was an issue moving file contents to HashMap!");
-            ioex.printStackTrace();
         }
 
         ServerSocket welcomeSocket = new ServerSocket(6789);
@@ -131,7 +130,6 @@ public class FDBServer {
                                         writer.flush();
                                         writer.close();
                                     } catch (FileNotFoundException ex) {
-                                        ex.printStackTrace();
                                     }
                                     
                                     System.out.println("Notify client event was created");
@@ -246,7 +244,7 @@ public class FDBServer {
                                                 }
                                             } catch (IOException e) {
                                                 // Handle IOException
-                                                e.printStackTrace();
+
                                             }
 
                                             //Write updated lines back to the file
@@ -256,7 +254,7 @@ public class FDBServer {
                                                 }
                                             } catch (IOException e) {
                                                 // Handle IOException
-                                                e.printStackTrace();
+
                                             }
                                             System.out.println("Notify client that goal was reached!");
                                             toClient.writeBytes(fundedEvent.getEventName() + " goal reached!\n");
@@ -280,7 +278,7 @@ public class FDBServer {
                                                 }
                                             } catch (IOException e) {
                                                 // Handle IOException
-                                                e.printStackTrace();
+
                                             }
 
                                             //Write updated lines back to the file
@@ -289,7 +287,6 @@ public class FDBServer {
                                                     writer.write(updatedLine + "\n");
                                                 }
                                             } catch (IOException e) {
-                                                e.printStackTrace();
                                             }
 
                                             //Format the target amount and notify client of successful processing
@@ -325,7 +322,6 @@ public class FDBServer {
                                             writer.close();
                                             
                                         } catch (FileNotFoundException ex) {
-                                            ex.printStackTrace();
                                         }
                                         break;
                                     }
@@ -376,7 +372,6 @@ public class FDBServer {
                             toClient.writeBytes("Invalid command. Please try again!\n");
                         }
                     } catch (Exception ex) {
-                        ex.printStackTrace();
                     }
                     //Close the connection
                     fromClient.close();
