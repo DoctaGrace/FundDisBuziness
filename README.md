@@ -2,15 +2,12 @@ Demonstrating Java-based multithreading, synchronization, and TCPs with a simple
 
 This file walks end users through the download and compilation process, as well as the logic for using the platform.
 
-Prerequisites - JDK (Java Development Kit) NetBeans IDE
+Prerequisites - JDK (Java Development Kit) and NetBeans IDE
 
-Getting Started - Download ZIP - Navigate to the GitHub repository webpage. Click on the 'Code' button. Choose 'Download ZIP'. Extract the downloaded ZIP file to a directory of your choice.
+Getting Started - Create a new Java class library. Within source packages, create a new package called 'GoFundMeApp'
+From the GoFundMeApp package, copy the contents of each Java class and the events.txt file. The README does not need to be copied over.
 
-After obtaining the project files, import it into NetBeans.
-
-Importing the Project into NetBeans - Open NetBeans IDE on your computer. Go to File -> Open Project. Navigate to the directory where the project files are located. Select the project folder and click Open Project.
-
-Compilation - Compile the project by selecting the 'Run' option at top of the screen. Then, select 'clean and build', or simply 'build'.
+Compilation - Compile the project by right-clicking on the project in the projects window and selecting 'clean and build'.
 
 Running the Program - First, right click on the Java class 'FDBServer'. This will activate the project's server. Then, right click on the 'FDBClient' class to begin a session as a user. Since this project supports multithreading, multiple clients can be active.
 
